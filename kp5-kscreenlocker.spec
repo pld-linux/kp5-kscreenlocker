@@ -6,7 +6,7 @@
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
 Version:	5.5.4
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -92,7 +92,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/knotifications5/ksmserver.notifyrc
 %{_datadir}/kservices5/plasma-screenlocker_kcm-screenlocker_kcm.desktop
 %dir %{_datadir}/ksmserver/screenlocker
+%dir %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog
 %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog/metadata.desktop
+%dir %{_datadir}/plasma/kcms/screenlocker_kcm
+%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents
+%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui
 %{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui/main.qml
 %{_datadir}/plasma/kcms/screenlocker_kcm/metadata.desktop
 
