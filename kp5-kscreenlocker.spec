@@ -1,16 +1,16 @@
-%define		kdeplasmaver	5.5.4
+%define		kdeplasmaver	5.11.0
 %define		qtver		5.5.1
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.5.4
-Release:	4
+Version:	5.11.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	5073ee898dac459f53200daba96d73ba
+# Source0-md5:	0ecf1016bd93431fabed71360593151e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -29,7 +29,7 @@ BuildRequires:	kf5-kdelibs4support-devel >= %{kf5ver}
 BuildRequires:	kf5-kglobalaccel-devel >= %{kf5ver}
 BuildRequires:	kf5-kidletime-devel >= %{kf5ver}
 BuildRequires:	kf5-plasma-framework-devel >= %{kf5ver}
-BuildRequires:	kp5-kwayland-devel
+BuildRequires:	kf5-kwayland-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
@@ -90,16 +90,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kconf_update/kscreenlocker.upd
 %{_datadir}/kconf_update/ksreenlocker_5_3_separate_autologin.pl
 %{_datadir}/knotifications5/ksmserver.notifyrc
-%{_datadir}/kservices5/plasma-screenlocker_kcm-screenlocker_kcm.desktop
+#%%{_datadir}/kservices5/plasma-screenlocker_kcm-screenlocker_kcm.desktop
 %dir %{_datadir}/ksmserver/screenlocker
 %dir %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog
 %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog/metadata.desktop
-%dir %{_datadir}/plasma/kcms
-%dir %{_datadir}/plasma/kcms/screenlocker_kcm
-%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents
-%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui
-%{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui/main.qml
-%{_datadir}/plasma/kcms/screenlocker_kcm/metadata.desktop
+#%%dir %{_datadir}/plasma/kcms
+#%%dir %{_datadir}/plasma/kcms/screenlocker_kcm
+#%%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents
+#%%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui
+#%%{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui/main.qml
+#%%{_datadir}/plasma/kcms/screenlocker_kcm/metadata.desktop
 
 %files devel
 %defattr(644,root,root,755)
