@@ -1,16 +1,16 @@
-%define		kdeplasmaver	5.11.2
+%define		kdeplasmaver	5.14.4
 %define		qtver		5.5.1
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.11.2
+Version:	5.14.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	273400ee0fa49d2dfa459bf56a999d47
+# Source0-md5:	f46412c02e11d53723c89a1f7505a3dd
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -28,8 +28,8 @@ BuildRequires:	kf5-kdeclarative-devel >= %{kf5ver}
 BuildRequires:	kf5-kdelibs4support-devel >= %{kf5ver}
 BuildRequires:	kf5-kglobalaccel-devel >= %{kf5ver}
 BuildRequires:	kf5-kidletime-devel >= %{kf5ver}
-BuildRequires:	kf5-plasma-framework-devel >= %{kf5ver}
 BuildRequires:	kf5-kwayland-devel
+BuildRequires:	kf5-plasma-framework-devel >= %{kf5ver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
@@ -81,12 +81,13 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}5.lang
 %defattr(644,root,root,755)
 %{_datadir}/kservices5/screenlocker.desktop
-%attr(755,root,root) %{_libdir}/kcheckpass
-%attr(755,root,root) %{_libdir}/kscreenlocker_greet
+%attr(755,root,root) %{_prefix}/libexec/kcheckpass
+%attr(755,root,root) %{_prefix}/libexec/kscreenlocker_greet
 %attr(755,root,root) %ghost %{_libdir}/libKScreenLocker.so.5
 %attr(755,root,root) %{_libdir}/libKScreenLocker.so.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/screenlocker_kcm.so
 %{_datadir}/dbus-1/interfaces/kf5_org.freedesktop.ScreenSaver.xml
+%{_datadir}/dbus-1/interfaces/org.kde.screensaver.xml
 %{_datadir}/kconf_update/kscreenlocker.upd
 %{_datadir}/kconf_update/ksreenlocker_5_3_separate_autologin.pl
 %{_datadir}/knotifications5/ksmserver.notifyrc
