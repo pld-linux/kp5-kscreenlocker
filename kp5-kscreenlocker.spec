@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/kf5_org.freedesktop.ScreenSaver.xml
 %{_datadir}/dbus-1/interfaces/org.kde.screensaver.xml
 %{_datadir}/kconf_update/kscreenlocker.upd
-%{_datadir}/kconf_update/ksreenlocker_5_3_separate_autologin.pl
+%attr(755,root,root) %{_datadir}/kconf_update/ksreenlocker_5_3_separate_autologin.pl
 %{_datadir}/knotifications5/ksmserver.notifyrc
 #%%{_datadir}/kservices5/plasma-screenlocker_kcm-screenlocker_kcm.desktop
 %dir %{_datadir}/ksmserver/screenlocker
