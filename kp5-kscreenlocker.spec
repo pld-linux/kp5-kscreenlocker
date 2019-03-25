@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.14.5
+%define		kdeplasmaver	5.15.3
 %define		qtver		5.9.0
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.14.5
-Release:	2
+Version:	5.15.3
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	78df406490d960548b085bcc8d32afbd
+# Source0-md5:	d7ae9eaa8ff3208df01935fc0cd0c28a
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -29,6 +29,7 @@ BuildRequires:	kf5-kglobalaccel-devel >= %{kf5ver}
 BuildRequires:	kf5-kidletime-devel >= %{kf5ver}
 BuildRequires:	kf5-kwayland-devel
 BuildRequires:	kf5-plasma-framework-devel >= %{kf5ver}
+BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xz
@@ -58,16 +59,14 @@ Pliki nagłówkowe dla programistów używających %{kpname}.
 %build
 install -d build
 cd build
-%cmake \
+%cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} -C build/ install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kpname}5 --all-name --with-kde
 
