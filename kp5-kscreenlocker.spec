@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	d7ae9eaa8ff3208df01935fc0cd0c28a
+# Source0-md5:	154009b2546a47cb5d750fe5103f0502
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -61,6 +61,7 @@ install -d build
 cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
 
@@ -83,23 +84,25 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_prefix}/libexec/kscreenlocker_greet
 %attr(755,root,root) %ghost %{_libdir}/libKScreenLocker.so.5
 %attr(755,root,root) %{_libdir}/libKScreenLocker.so.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/screenlocker_kcm.so
 %{_datadir}/dbus-1/interfaces/kf5_org.freedesktop.ScreenSaver.xml
 %{_datadir}/dbus-1/interfaces/org.kde.screensaver.xml
 %{_datadir}/kconf_update/kscreenlocker.upd
 %attr(755,root,root) %{_datadir}/kconf_update/ksreenlocker_5_3_separate_autologin.pl
 %{_datadir}/knotifications5/ksmserver.notifyrc
-#%%{_datadir}/kservices5/plasma-screenlocker_kcm-screenlocker_kcm.desktop
 %dir %{_datadir}/ksmserver
 %dir %{_datadir}/ksmserver/screenlocker
 %dir %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog
 %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog/metadata.desktop
-#%%dir %{_datadir}/plasma/kcms
-#%%dir %{_datadir}/plasma/kcms/screenlocker_kcm
-#%%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents
-#%%dir %{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui
-#%%{_datadir}/plasma/kcms/screenlocker_kcm/contents/ui/main.qml
-#%%{_datadir}/plasma/kcms/screenlocker_kcm/metadata.desktop
+%attr(755,root,root) %{_libdir}/qt5/plugins/kcms/kcm_screenlocker.so
+%dir %{_datadir}/kpackage/kcms/kcm_screenlocker
+%dir %{_datadir}/kpackage/kcms/kcm_screenlocker/contents
+%dir %{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui
+%{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/Appearance.qml
+%{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/LnfConfig.qml
+%{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/WallpaperConfig.qml
+%{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/main.qml
+%{_datadir}/kpackage/kcms/kcm_screenlocker/metadata.desktop
+%{_datadir}/kpackage/kcms/kcm_screenlocker/metadata.json
 
 %files devel
 %defattr(644,root,root,755)
