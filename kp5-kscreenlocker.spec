@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.21.3
+%define		kdeplasmaver	5.21.4
 %define		qtver		5.9.0
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.21.3
+Version:	5.21.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	99c6c1d7eb127127d1264400885db282
+# Source0-md5:	2745bbee9f209def206716fab47214f1
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
