@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.21.4
+%define		kdeplasmaver	5.21.5
 %define		qtver		5.9.0
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.21.4
+Version:	5.21.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	2745bbee9f209def206716fab47214f1
+# Source0-md5:	a46f2ed0503a096a145346d714c93834
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/screenlocker.desktop
 %attr(755,root,root) %{_prefix}/libexec/kcheckpass
 %attr(755,root,root) %{_prefix}/libexec/kscreenlocker_greet
-%attr(755,root,root) %ghost %{_libdir}/libKScreenLocker.so.5
+%ghost %{_libdir}/libKScreenLocker.so.5
 %attr(755,root,root) %{_libdir}/libKScreenLocker.so.*.*
 %{_datadir}/dbus-1/interfaces/kf5_org.freedesktop.ScreenSaver.xml
 %{_datadir}/dbus-1/interfaces/org.kde.screensaver.xml
