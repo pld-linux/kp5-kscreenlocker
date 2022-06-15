@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.24.5
+%define		kdeplasmaver	5.25.0
 %define		qtver		5.9.0
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.24.5
-Release:	2
+Version:	5.25.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	fd288ff836cc804e3f87dd2f5bf73350
+Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	7b800343d00be3589ad804143d3a5ed7
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -90,8 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kpname}5.lang
 %defattr(644,root,root,755)
-%{_datadir}/kservices5/screenlocker.desktop
-%attr(755,root,root) %{_prefix}/libexec/kcheckpass
 %attr(755,root,root) %{_prefix}/libexec/kscreenlocker_greet
 %ghost %{_libdir}/libKScreenLocker.so.5
 %attr(755,root,root) %{_libdir}/libKScreenLocker.so.*.*
@@ -104,7 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/ksmserver/screenlocker
 %dir %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog
 %{_datadir}/ksmserver/screenlocker/org.kde.passworddialog/metadata.desktop
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcms/kcm_screenlocker.so
 %dir %{_datadir}/kpackage/kcms/kcm_screenlocker
 %dir %{_datadir}/kpackage/kcms/kcm_screenlocker/contents
 %dir %{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui
@@ -112,8 +109,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/LnfConfig.qml
 %{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/WallpaperConfig.qml
 %{_datadir}/kpackage/kcms/kcm_screenlocker/contents/ui/main.qml
-%{_datadir}/kpackage/kcms/kcm_screenlocker/metadata.desktop
-%{_datadir}/kpackage/kcms/kcm_screenlocker/metadata.json
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_screenlocker.so
+%{_desktopdir}/kcm_screenlocker.desktop
 
 %files devel
 %defattr(644,root,root,755)
