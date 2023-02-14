@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.26.5
+%define		kdeplasmaver	5.27.0
 %define		qtver		5.15.2
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
 Summary:	kscreenlocker
 Name:		kp5-%{kpname}
-Version:	5.26.5
+Version:	5.27.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	fbf3d2ff3dcfe2eb6770f18f0784b693
+# Source0-md5:	4122378c12d44cc6ccc4b3548fa2f9ac
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -33,6 +33,7 @@ BuildRequires:	kf5-kidletime-devel >= %{kf5ver}
 BuildRequires:	kf5-kwayland-devel
 BuildRequires:	kf5-plasma-framework-devel >= %{kf5ver}
 BuildRequires:	kp5-layer-shell-qt-devel >= %{kdeplasmaver}
+BuildRequires:	kp5-libkscreen-devel >= %{kdeplasmaver}
 BuildRequires:	ninja
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
