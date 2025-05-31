@@ -1,19 +1,21 @@
 #
 # Conditional build:
-%bcond_with	tests		# build with tests
+%bcond_with	tests		# test suite
+
 %define		kdeplasmaver	5.27.12
 %define		qtver		5.15.2
 %define		kf5ver		5.19.0
 %define		kpname		kscreenlocker
-Summary:	kscreenlocker
+Summary:	KDE screen locker
+Summary(pl.UTF-8):	Blokowanie ekranu dla KDE
 Name:		kp5-%{kpname}
 Version:	5.27.12
 Release:	1
-License:	LGPL v2.1+
+License:	GPL v2+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
 # Source0-md5:	a7d72e4e130081000b889b73c3e46303
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Network-devel >= %{qtver}
@@ -46,7 +48,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		qt5dir		%{_libdir}/qt5
 
 %description
-kscreenlocker
+KDE screen locker.
+
+%description -l pl.UTF-8
+Blokowanie ekranu dla KDE.
 
 %package devel
 Summary:	Header files for %{kpname} development
@@ -89,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kpname}5.lang
 %defattr(644,root,root,755)
+%doc DESIGN README.pam
 %attr(755,root,root) %{_prefix}/libexec/kscreenlocker_greet
 %ghost %{_libdir}/libKScreenLocker.so.5
 %attr(755,root,root) %{_libdir}/libKScreenLocker.so.*.*
