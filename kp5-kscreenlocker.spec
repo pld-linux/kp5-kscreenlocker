@@ -86,6 +86,7 @@ Requires:	Qt5Widgets >= %{qt_ver}
 Requires:	Qt5X11Extras >= %{qt_ver}
 Requires:	wayland >= 1.3
 %{?with_consolekit:Suggests:	ConsoleKit}
+%{?with_consolekit:Suggests:	qt5-dbus}
 # systemd or elogind
 %{!?with_consolekit:Suggests:	/bin/loginctl}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -121,7 +122,7 @@ Pliki nagłówkowe dla programistów używających %{kpname}.
 	-DKDE_INSTALL_SYSCONFDIR=%{_sysconfdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	%{?with_consolekit:-Dcklistsessions_EXECUTABLE:PATH=/usr/bin/ck-list-sessions} \
-	%{?with_consolekit:-Dqdbus_EXECUTABLE:PATH=/usr/bin/qdbus} \
+	%{?with_consolekit:-Dqdbus_EXECUTABLE:PATH=/usr/bin/qdbus-qt5} \
 	%{!?with_consolekit:-Dloginctl_EXECUTABLE:PATH=/bin/loginctl}
 
 %ninja_build -C build
